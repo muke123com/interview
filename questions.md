@@ -1,6 +1,6 @@
 ## 基础
 
-```
+```js
 ['1', '2', '3'].map(parseInt);
 
 等价于
@@ -10,7 +10,7 @@
 })
 ```
 
-```
+```js
 0.1 + 0.2 === 0.3;
 false
 
@@ -30,7 +30,7 @@ false
 ```
 
 #### sort排序
-```
+```js
 var arr = [2,1,4,3];
 
 function asc(a,b) {
@@ -41,7 +41,7 @@ arr.sort(asc);
 ```
 
 #### 打乱数组
-```
+```js
 var arr = [1,2,3,4];
 arr.sort(function(a,b){
     return 0.5 - Math.random()
