@@ -20,6 +20,15 @@ false
 'abc'+false ? 'Something' : 'Nothing'; Something
 ```
 
+### call()与apply()
+**call()**   调用一个对象的一个方法，以另一个对象替换当前对象。
+**apply()**   应用某一对象的一个方法，用另一个对象替换当前对象。
+
+```
+
+
+```
+
 #### sort排序
 ```
 var arr = [2,1,4,3];
