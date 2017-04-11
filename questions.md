@@ -3,7 +3,7 @@
 ```
 ['1', '2', '3'].map(parseInt);
 
-//等价于
+等价于
 
 ['1', '2', '3'].map(function(num, index){
     parseInt(num, index);
@@ -23,12 +23,9 @@ false
 ```
 sort排序
 var arr = [2,1,4,3];
-function asc(a,b) {
-  return a < b ? -1 : 1;//如果a<b不交换，否则交换，即升序排列
-}
 
-function desc(a,b) {
-  return a > b ? -1 : 1;;//如果a>b不交换，否则交换，即将序排列
+function asc(a,b) {
+  return a - b;//如果值为-1不交换，否则交换，即升序排列
 }
 
 arr.sort(asc);
