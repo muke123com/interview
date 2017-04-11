@@ -37,17 +37,18 @@ write.bind(document)('abc');
 function Animal(){
 	this.name = 'abc';
 	this.age = 123;
+	this.getName = function() {
+		alert(this.name);
+	}
 }
 
 function Cat(){
+	Animal.call(this);   //使用 Animal对象代替this对象, 实现Cat继承Animal
+	this.name = 'Cat';
 	this.color = "white";
-	Animal.call(this);   使用 Animal对象代替this对象
 }
 
 var cat = new Cat();
-
-cat.name;
-
 ```
 
 #### caller()与callee()
@@ -60,10 +61,10 @@ function c2() {
 	c1();    
 }
 c2();
-因为c2调用了c1, 所以c1.caller的结果是c2。
+//因为c2调用了c1, 所以c1.caller的结果是c2。
 
 c1();
-若c1是顶层函数, 则返回结果是null;
+//若c1是顶层函数, 则返回结果是null;
 ```
 * `callee` 放回正在执行的函数本身的引用，它是arguments的一个属性。
 ```js
