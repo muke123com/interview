@@ -25,7 +25,7 @@ sort排序
 var arr = [2,1,4,3];
 
 function asc(a,b) {
-  return a - b;//如果值为-1不交换，否则交换，即升序排列
+  return a - b;//如果a<b不交换，否则交换，即升序排列
 }
 
 arr.sort(asc);
