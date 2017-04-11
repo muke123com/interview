@@ -20,6 +20,13 @@ false
 'abc'+false ? 'Something' : 'Nothing'; Something
 ```
 
+#### bind()
+* 
+```js
+var write = document.write;
+write.bind(document)('abc');
+```
+
 #### call()与apply()
 * 调用一个对象的一个方法，以另一个对象替换当前对象。
 * `call()` 的第二个参数可以是任意类型。
@@ -61,7 +68,7 @@ c1();
 * `callee` 放回正在执行的函数本身的引用，它是arguments的一个属性。
 ```js
 function c1() {
-	alert(c1.callee);
+	alert(arguments.callee);
 }
 function c2() {
 	c1();    
