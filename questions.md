@@ -20,8 +20,8 @@ false
 'abc'+false ? 'Something' : 'Nothing'; Something
 ```
 
+#### sort排序
 ```
-sort排序
 var arr = [2,1,4,3];
 
 function asc(a,b) {
@@ -29,4 +29,12 @@ function asc(a,b) {
 }
 
 arr.sort(asc);
+```
+
+#### 打乱数组
+```
+var arr = [1,2,3,4];
+arr.sort(function(a,b){
+    return 0.5 - Math.random()
+})
 ```
