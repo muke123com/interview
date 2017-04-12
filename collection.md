@@ -1,6 +1,6 @@
 ## 收集的题
 
-#### this
+#### 1.this
 ```js
 var length = 10;
 function fn() {
@@ -18,3 +18,16 @@ var obj = {
 obj.method(fn, 1);
 ```
 > 第二次执行时相当于arguments调用方法，this指向arguments，而这里传了两个参数，故输出arguments长度为2
+
+#### 2.var和函数的提前声明
+```js
+function fn(a) {
+  console.log(a); 
+  var a = 2;
+  function a() {}
+  console.log(a); 
+}
+ 
+fn(1);
+```
+> var和function是会提前声明的，而且function是优先于var声明的（如果同时存在的话），所以提前声明后输出的a是个function，然后代码往下执行a进行重新赋值了，故第二次输出是2。
