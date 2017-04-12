@@ -26,5 +26,8 @@
   如果有一个元素满足条件，则表达式返回true , 剩余的元素不会再执行检测。
   如果没有满足条件的元素，则返回false。
 ```js
- 
+  var nums = [1,2,3,4,5];
+  nums.some(function(num) {
+    return num > 3;
+  })
 ```
