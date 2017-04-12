@@ -1,5 +1,17 @@
 ## 基础知识
 
+#### 关键字
+**in**
+```js
+  //循环
+  for (x in arr) {}
+  for(var v in obj) {}
+  
+  //判断是否存在
+  1 in arr
+  'name' in obj
+```
+
 #### this
 
 #### Array
