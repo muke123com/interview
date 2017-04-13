@@ -49,6 +49,12 @@ function Cat(){
 }
 
 var cat = new Cat();
+
+//原型继承
+function Dog(){
+	this.name = "dog";
+};
+Dog.prototype = new Animal();  //能继承对象原型上的方法
 ```
 
 #### caller()与callee()
