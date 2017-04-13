@@ -55,6 +55,7 @@ var fn;
     var a = "bb";
     alert(a);
   }
+  fn();
   //结果为undefined, bb
 ```
 > 函数在定义它们的作用域里运行，而不是在执行它们的作用域里运行
