@@ -43,7 +43,7 @@ function Animal(){
 }
 
 function Cat(){
-	Animal.call(this);   //使用 Animal对象代替this对象, 实现Cat继承Animal
+	Animal.call(this);   //使用 Animal对象代替this对象, 实现Cat继承Animal。 但call不能继承对象原型上的方法
 	this.name = 'Cat';
 	this.color = "white";
 }
