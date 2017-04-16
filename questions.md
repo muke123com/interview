@@ -74,13 +74,14 @@ c1();
 ```
 * `callee` 放回正在执行的函数本身的引用，它是arguments的一个属性。
 ```js
-function c1() {
-	alert(arguments.callee);
+//用于递归
+function factorial(num) {
+  if(num < 1) {
+    return 1;
+  } else{
+    return num * arguments.callee(num - 1);
+  }
 }
-function c2() {
-	c1();    
-}
-c2();
 ```
 
 
