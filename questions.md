@@ -35,24 +35,24 @@ write.bind(document)('abc');
 **继承**
 ```js
 function Animal(){
-	this.name = 'abc';
-	this.age = 123;
-	this.getName = function() {
-		alert(this.name);
-	}
+  this.name = 'abc';
+  this.age = 123;
+  this.getName = function() {
+    alert(this.name);
+  }
 }
 
 function Cat(){
-	Animal.call(this);   //使用 Animal对象代替this对象, 实现Cat继承Animal。 但call不能继承对象原型上的方法
-	this.name = 'Cat';
-	this.color = "white";
+  Animal.call(this);   //使用 Animal对象代替this对象, 实现Cat继承Animal。 但call不能继承对象原型上的方法
+  this.name = 'Cat';
+  this.color = "white";
 }
 
 var cat = new Cat();
 
 //原型继承
 function Dog(){
-	this.name = "dog";
+  this.name = "dog";
 };
 Dog.prototype = new Animal();  //能继承对象原型上的方法
 ```
@@ -61,10 +61,10 @@ Dog.prototype = new Animal();  //能继承对象原型上的方法
 * `caller` 返回一个函数的引用，这个函数调用了当前的函数。
 ```js
 function c1() {
-	alert(c1.caller);
+  alert(c1.caller);
 }
 function c2() {
-	c1();    
+  c1();    
 }
 c2();
 //因为c2调用了c1, 所以c1.caller的结果是c2。
