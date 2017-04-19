@@ -38,6 +38,15 @@ fn(1);
   }
 
   alert(a);
+  
+  //等价于
+  
+  var a;
+  if('a' in window) {
+    a = 10;
+  }
+
+  alert(a);
 ```
 > 代码还没执行前，a变量已经被声明，于是 ‘a’ in window 返回true，a被赋值。
 
