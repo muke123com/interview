@@ -43,4 +43,5 @@
     return guess;
   }
   squareRootBi(10, 0.0001);
+  //时间复杂度  O(logn)
 ```
