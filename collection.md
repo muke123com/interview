@@ -66,6 +66,17 @@ var fn;
   }
   fn();
   //结果为undefined, bb
+  
+  //等价于
+  var a = "aa";
+  function fn(){
+    var a;
+    alert(a);
+    a = "bb";
+    alert(a);
+  }
+  fn();
+  
 ```
 > 函数在定义它们的作用域里运行，而不是在执行它们的作用域里运行
 
