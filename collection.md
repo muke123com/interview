@@ -30,6 +30,12 @@ function fn(a) {
  
 fn(1);
 ```
+
+```js
+console.log(typeof fn);
+function fn() {};
+var fn;
+```
 > var和function是会提前声明的，而且function是优先于var声明的（如果同时存在的话），所以提前声明后输出的a是个function，然后代码往下执行a进行重新赋值了，故第二次输出是2。
 
 ```js
@@ -50,12 +56,6 @@ fn(1);
 ```
 > 代码还没执行前，a变量已经被声明，于是 ‘a’ in window 返回true，a被赋值。
 
-```js
-console.log(typeof fn);
-function fn() {};
-var fn;
-```
-> 函数声明又会优于变量声明，这里的优于可以理解为晚于变量声明后。
 
 ```js
   var a = "aa";
