@@ -62,3 +62,24 @@ function perm(arr) {
 }  
 perm(['A', 'B', 'C', 'D']);  
 ```
+
+#### 杨辉三角
+```js
+function Pascal(m,n){
+    var str;
+	for(var i=0;i<m;i++){
+        str = "";
+        for(var j=0;j<n;j++){
+            str += combination(i,j) + ","
+        }
+        console.log(str);
+        console.log('\n');
+    }
+}
+function combination(m, n){
+    if(m == 0 || n == 0){
+        return 1;
+    }
+    return combination(m-1,n)+combination(m,n-1);
+}
+```
