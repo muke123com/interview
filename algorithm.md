@@ -45,3 +45,20 @@
   squareRootBi(10, 0.0001);
   //时间复杂度  O(logn)
 ```
+
+#### 排列组合
+```js  
+function show(arr) {  
+    console.log(arr);  
+}  
+function perm(arr) {  
+    (function fn(source, result) {  
+        if (source.length == 0)  
+            show(result);  
+        else 
+            for (var i = 0; i < source.length; i++)  
+                fn(source.slice(0, i).concat(source.slice(i + 1)), result.concat(source[i]));  
+    })(arr, []);  
+}  
+perm(['A', 'B', 'C', 'D']);  
+```
