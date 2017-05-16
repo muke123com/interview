@@ -113,3 +113,15 @@ arr.sort (function (a, b) {
 
 * Push()尾部添加 pop()尾部删除
 * Unshift()头部添加 shift()头部删除
+
+#### 简单闭包
+```js
+function f1(){
+	var aa = 122;
+	function f2(){
+		return aa;
+	}
+	return f2;
+}
+
+```
