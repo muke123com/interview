@@ -9,6 +9,8 @@ init 5  # 切换为桌面
 cd ~    # 切换到用户目录
 cd -    # 返回上一次目录
 df -hl  # 查看磁盘信息
+free -m # 查看内存使用情况
+top -u root   # 查看任务管理器
 rm -rf  # 强制删除
 rmdir test   # 删除test文件夹
 tm -i a.txt  # 删除文件前会有提示是否确定删除该文件
@@ -57,6 +59,8 @@ firewall-cmd --state                # 查看默认防火墙状态（关闭后显
 
 
 cat /proc/version  # 查看系统信息
+
+tailf app.log  # 查看日志，自动更新
 ```
 
 ## Nginx
