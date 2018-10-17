@@ -123,5 +123,27 @@ function f1(){
 	}
 	return f2;
 }
+//aa占用内存不会自动释放
 
+```
+
+### 事件冒泡，事件委托
+
+* target和currentTarget都是event上面的属性，target是真正发生事件的DOM元素，而currentTarget是当前事件发生在哪个DOM元素上。
+
+* 对“事件处理程序过多”问题的解决方案就是事件委托。事件委托利用了事件冒泡，只指定一个事件处理程序，就可以管理某一类型的所有事件。例如，click事件会一直冒泡到document层次。也就是说，我们可以为整个页面指定一个onclick事件处理程序，而不必给每个可单击的元素分别添加事件处理程序。
+
+* 事件委托还有一个好处就是添加进来的元素也能绑定事件
+```js
+//利于事件流绑定事件
+(function(){
+    var color_list = document.getElementById('color-list');
+    color_list.addEventListener('click',showColor,false);
+    function showColor(e){
+        var x = e.target;
+        if(x.nodeName.toLowerCase() === 'li'){
+            alert('The color is ' + x.innerHTML);
+        }
+    }
+})();
 ```

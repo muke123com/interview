@@ -85,4 +85,13 @@ server {
             index  index.html  index.htm;
         }
 }
+
+server {
+	listen       80;
+	server_name  brand-trade.qds.com;
+
+	location / {
+		proxy_pass http://localhost:8081;
+	}
+}
 ```
