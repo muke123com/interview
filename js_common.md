@@ -31,6 +31,7 @@ function isObject (obj) {
 }
 Object.create(null);  //不继承任何原型方法，也就是说它的原型链没有上一层。
 //可以判断数组类型
+var _toString = Object.prototype.toString;
 function toRawType (value) {
   return _toString.call(value).slice(8, -1)
 }
