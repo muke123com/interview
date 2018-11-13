@@ -62,4 +62,29 @@ var hasOwnProperty = Object.prototype.hasOwnProperty;
 function hasOwn (obj, key) {
   return hasOwnProperty.call(obj, key)
 }
+
+//操作cookie
+function setCookie(cname, cvalue, exdays) {   
+		var d = new Date();   
+		d.setTime(d.getTime() + (exdays*24*60*60*1000));   
+		var expires = "expires="+d.toUTCString(); 
+		var cookie_domain = "domain=" + domain; 
+		document.cookie = cname + "=" + cvalue + "; " + expires + "; " + cookie_domain;
+}
+function getCookie(key){
+		var getCookie = document.cookie.replace(/[ ]/g,"");
+		var arrCookie = getCookie.split(";")
+		var tips;
+		for(var i=0;i<arrCookie.length;i++){
+				var arr=arrCookie[i].split("=");
+				if(key==arr[0]){
+						tips=arr[1];
+						break;
+				}
+		}
+		return tips;
+};
+function clearCookie(name) {
+		setCookie(name, "", -1);
+}
 ```
