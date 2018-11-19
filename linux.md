@@ -62,7 +62,7 @@ cat /proc/version  # 查看系统信息
 
 tailf app.log  # 查看日志，自动更新
 ```
-
+- 删不掉.swp文件解决方法：结束vim.exe这个进程
 ## Nginx
 ```python
 

@@ -35,7 +35,7 @@
 > `reverse()` 方法用于颠倒数组中元素的顺序。
 > `array.reverse()`
 
-`some()`
+`some(), every()` 
 > `some()` 方法用于检测数组中的元素是否满足指定条件（函数提供）
   如果有一个元素满足条件，则表达式返回true , 剩余的元素不会再执行检测。
   如果没有满足条件的元素，则返回false。
@@ -44,4 +44,13 @@
   nums.some(function(num) {
     return num > 3;
   })
+```
+`filter`
+> filter() 方法创建一个新的数组，新数组中的元素是通过检查指定数组中符合条件的所有元素。
+
+> 注意： filter() 不会对空数组进行检测。
+
+> 注意： filter() 不会改变原始数组。
+```js
+list.filter(function(item){ return item['privateEndDate'] == '2020-8-13' })
 ```
