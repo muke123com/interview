@@ -1,8 +1,9 @@
-[vue-cli](<a href='#vue-cli'></a>)
+[基本问题](基本问题)
 
-#### vue-cli
+#### 基本问题
 - 开启eslint： index.js -> useEslint: true
 - 修改反向代理 端口号：index.js -> host, port
+- 路由children 需要 <router-view></router-view>
 
 
 #### 生命周期
