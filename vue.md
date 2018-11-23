@@ -1,12 +1,15 @@
-[基本问题](基本问题)
+### 目录
+* [基础问题](#basis)
+* [生命周期](#lifecycle)
+* [vuex](#vuex)
 
-#### 基本问题
+#### basis
 - 开启eslint： index.js -> useEslint: true
 - 修改反向代理 端口号：index.js -> host, port
 - 路由children 需要 <router-view></router-view>
+- 事件修饰符 `.stop .prevent .capture .self .once`
 
-
-#### 生命周期
+#### lifecycle
 - Vue.use 使用vue插件
 - beforecreate : 举个栗子：可以在这加个loading事件
 - created ：在这结束loading，还做一些初始化，实现函数自执行
@@ -94,6 +97,9 @@ export default {
 - `mutation` 类似事件，修改store中状态的唯一方法
 - `action` Action 类似于 mutation，不同在于：Action 提交的是 mutation，而不是直接变更状态。Action 可以包含任意异步操作。
 - `Module` 可以将将 store 分割成模块
+
+- `mutation` 通过 `store.commit` 触发
+- `action` 通过 `store.dispatch` 触发
 
 ###### 项目结构
 - 应用层级的状态应该集中到单个 `store` 对象中。
