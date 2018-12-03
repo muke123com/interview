@@ -108,7 +108,7 @@ export default {
 ###### 核心概念
 - `state` 单一状态树，作为唯一数据源存在 (不同组件使用统一的数据源)。可用函数：`mapState`
 - `Getter` 获取数据
-- `mutation` 类似事件，修改store中状态的唯一方法
+- `mutation` 修改store中状态的唯一方法
 - `action` Action 类似于 mutation，不同在于：Action 提交的是 mutation，而不是直接变更状态。Action 可以包含任意异步操作。
 - `Module` 可以将将 store 分割成模块
 
