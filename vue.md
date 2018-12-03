@@ -1,7 +1,19 @@
 ### 目录
+* [技术](#tech)
 * [基础问题](#basis)
 * [生命周期](#lifecycle)
 * [vuex](#vuex)
+
+#### tech
+vue-router：为单页面应用提供的路由系统，使用了 Lazy Loading Routes 技术来实现异步加载优化性能
+vuex：Vue 集中状态管理，在多个组件共享某些状态时非常便捷
+vue-lazyload：实现图片懒加载，节省用户流量，优化页面加载速度
+vue-axios：用来请求后端 API 
+better-scroll：解决移动端各种滚动场景需求的插件，使移动端滑动体验更加流畅
+NeteaseCloudMusicApi：网易云音乐 NodeJS 版 API，提供音乐数据其他工具
+vue-cli：Vue 脚手架工具，快速初始化项目代码
+eslint：代码风格检查工具，帮助我们规范代码书写（一定要养成良好的代码规范）
+fastclick ：消除 300ms 的延迟
 
 #### basis
 - 开启eslint： index.js -> useEslint: true
@@ -91,9 +103,11 @@ export default {
 ```
 
 #### Vuex
+![Image text](vuex.png)
+> 管理全局共享数据
 ###### 核心概念
 - `state` 单一状态树，作为唯一数据源存在 (不同组件使用统一的数据源)。可用函数：`mapState`
-- `Getter` 感觉类似computed, 但是不同组件可以同时使用
+- `Getter` 获取数据
 - `mutation` 类似事件，修改store中状态的唯一方法
 - `action` Action 类似于 mutation，不同在于：Action 提交的是 mutation，而不是直接变更状态。Action 可以包含任意异步操作。
 - `Module` 可以将将 store 分割成模块
@@ -105,6 +119,7 @@ export default {
 - 应用层级的状态应该集中到单个 `store` 对象中。
 - 提交 `mutation` 是更改状态的唯一方法，并且这个过程是同步的。
 - 异步逻辑都应该封装到 `action` 里面。 
+
 
 ```
 ├── index.html
