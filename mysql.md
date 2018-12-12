@@ -1,4 +1,4 @@
-```sql
+```mysql
 # 联表查询
 SELECT
 	a.fcg_name, b.fbiz_name, a.forder_no, b.forder_no
@@ -34,7 +34,7 @@ WHERE fcity REGEXP '^s$'  # 正则表达式
 ```
 
 ## 练习
-```sql
+```mysql
 INSERT INTO checking (customer_id, balance1)
 VALUES
 	(10233277, 11);
@@ -286,7 +286,7 @@ FROM
 ```
 
 
-```sql
+```mysql
 show global variables like 'max_allowed_packet';
 
 # 导入数据库时(2006, 'MySQL server has gone away')

@@ -1,4 +1,5 @@
 ## Linux
+
 ```python
 # 帮助信息
 man  *
@@ -62,9 +63,11 @@ cat /proc/version  # 查看系统信息
 
 tailf app.log  # 查看日志，自动更新
 ```
-- 删不掉.swp文件解决方法：结束vim.exe这个进程
+* 删不掉.swp文件解决方法：结束vim.exe这个进程
+
 ## Nginx
-```python
+
+```nginx
 
 start nginx    # 启动
 nginx -s stop  # 关闭
@@ -145,3 +148,36 @@ server {
 	}
 }
 ```
+
+## [docker](http://www.baidu.com)
+
+```python
+# 安装
+yum install epel-release
+yum install docker-io
+docker images # 查看镜像
+docker ps     # 查看启动容器
+docker stop b620e82576b5  # 关闭容器
+docker rm b620e82576b5  # 关闭容器
+# 安装nginx例子
+docker search nginx # 搜索
+docker pull nginx
+docker run -p 8080:80 -d docker.io/nginx # 启动nginx
+docker run -it nginx /bin/bash # 进入容器
+```
+
+```python
+# 运行
+docker run 
+-p 8080:80 
+--name mynginx 
+-v $PWD/www:/www 
+-v $PWD/conf/nginx.conf:/etc/nginx/nginx.conf 
+-v $PWD/logs:/wwwlogs 
+-d nginx
+
+# $PWD 当前目录
+# 启动报错需要自己创建nginx.conf
+
+```
+

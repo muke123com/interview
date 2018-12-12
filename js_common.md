@@ -87,4 +87,32 @@ function getCookie(key){
 function clearCookie(name) {
 		setCookie(name, "", -1);
 }
+//滚动
+var Index = {
+    scrollTop: top,
+    leftNavScroll: function (top) {
+        this.scrollTop = top;
+        if(top > 600){
+            $(".public-fixleftbar").show()
+        }else{
+            $(".public-fixleftbar").hide()
+        }
+        var ids = ['section-hotservice', 'section-tools', 'section-pingtai', 'section-news'];
+        for (var i=0;i<ids.length;i++){
+            this.leftNavSelect(ids[i]);
+        }
+    },
+    leftNavSelect: function (id) {
+        var top = this.scrollTop;
+        var id_top = $("#"+id).offset().top;
+        if(top > id_top - 200 && top < id_top){
+            $(".public-fixleftbar a").removeClass("active");
+            $("." + id + '-a').addClass('active');
+        }
+    },
+    leftNavClick: function (id) {
+        var id_top = $("#"+id).offset().top;
+        $('html,body').animate({'scrollTop': id_top - 60});
+    }
+}
 ```

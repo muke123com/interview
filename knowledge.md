@@ -132,3 +132,18 @@ var fn;
 ```js
 list.filter(function(item){ return item['privateEndDate'] == '2020-8-13' })
 ```
+
+### Object
+
+`Object.keys(obj)`  获取对象中所有key值，返回一个数组
+
+ `Object.assign(obj1,obj2)`
+
+针对深拷贝，需要使用其他方法，因为 `Object.assign()`拷贝的是属性值。**假如源对象的属性值是一个指向对象的引用，它也只拷贝那个引用值**。
+
+```js
+//Object.assign复制一个对象到另一个对象中,相同属性会覆盖
+var obj = { a: 1 };
+var copy = Object.assign({}, obj);
+console.log(copy); // { a: 1 }
+```

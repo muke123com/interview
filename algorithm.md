@@ -1,4 +1,9 @@
+## 基本算法
+
+[TOC]
+
 #### 快速排序
+
 ```js
     var quickSort = function(arr) {
       if(arr.length <= 1) {
