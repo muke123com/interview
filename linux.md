@@ -1,6 +1,19 @@
 ## Linux
 
 ```python
+shutdown -h 10        #计算机将于10分钟后关闭，且会显示在登录用户的当前屏幕中
+shutdown -h now       #计算机会立刻关机
+shutdown -h 22:22     #计算机会在这个时刻关机
+shutdown -r now       #计算机会立刻重启
+shutdown -r +10       #计算机会将于10分钟后重启
+reboot                #重启
+halt                  #关机
+
+# 网卡设置ip
+ip addr  # 查看ip 及网卡名
+ip add ip addr add 192.168.10.111/24 dev ens33  # 给网卡ens33设置ip为192.168.10.111(临时)
+# /24是指子网掩码的位数，一般为255.255.255.0，写作二进制有24个1
+
 # 帮助信息
 man  *
 info *
@@ -24,7 +37,9 @@ wget -c url   # 下载 url 并开启断点续传
 chmod 777 test.sh  # test.sh添加最高权限
 chmod u=rwx, go=rx test.sh # 这个命令中u表示拥有者，g表示group中的用户，o表示others，r可读，w可写，x可执行
 less  # 分页查看文件内容 
-vim u指令    # 返回上一步
+vim 
+u    # 返回上一步
+dd   # 删除整行
 
 cp      # 复制
 cp a.txt b.txt   # 把文件a的内容复制到b文件
@@ -52,6 +67,7 @@ mv a.txt ./test # 把文件移动到一个目录下
 make
 make install
 
+lsof -i:端口号   # 查看端口
 iptables -I INPUT -p tcp --dport 3000 -j ACCEPT   # 开放3000端口
 
 systemctl stop firewalld.service    # 停止firewall
@@ -62,8 +78,10 @@ firewall-cmd --state                # 查看默认防火墙状态（关闭后显
 cat /proc/version  # 查看系统信息
 
 tailf app.log  # 查看日志，自动更新
+/boot/grub2/grub.cfg  # 修改命令行分辨率
 ```
-* 删不掉.swp文件解决方法：结束vim.exe这个进程
+* **删不掉.swp文件解决方法：结束vim.exe这个进程**
+* 修改网卡不起作用  onboot=no  改成yes
 
 ## Nginx
 
@@ -167,17 +185,16 @@ docker run -it nginx /bin/bash # 进入容器
 ```
 
 ```python
-# 运行
-docker run 
--p 8080:80 
---name mynginx 
--v $PWD/www:/www 
--v $PWD/conf/nginx.conf:/etc/nginx/nginx.conf 
--v $PWD/logs:/wwwlogs 
--d nginx
-
-# $PWD 当前目录
-# 启动报错需要自己创建nginx.conf
-
+# docker 镜像迁移
+[root@localhost ~]# mkdir /opt/soft/
+[root@localhost ~]# docker save c3987965c15d > /opt/soft/postgres.img
+[root@localhost ~]# cd /opt/soft
+[root@localhost soft]# ls
+postgres.img
+[root@localhost soft]# sz postgres.img 
+ 
+[root@localhost2 ~]# rz
+[root@localhost2 ~]# docker load < postgres.img 
+[root@localhost2 ~]# docker images
 ```
 
