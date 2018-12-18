@@ -182,6 +182,8 @@ docker search nginx # 搜索
 docker pull nginx
 docker run -p 8080:80 -d docker.io/nginx # 启动nginx
 docker run -it nginx /bin/bash # 进入容器
+
+docker build -t test-node .
 ```
 
 ```python
@@ -198,3 +200,124 @@ postgres.img
 [root@localhost2 ~]# docker images
 ```
 
+#### Dockerfile 参数
+
+##### FROM
+
+1. 功能为指定基础镜像，并且必须是第一条指令。
+2. 如果不以任何镜像为基础，那么写法为：FROM scratch。
+
+```bash
+FROM <image>
+FROM <image>:<tag>
+FROM <image>:<digest> 
+# 三种写法，其中<tag>和<digest> 是可选项，如果没有选择，那么默认值为latest
+```
+
+##### RUN
+
+1. 功能为运行指定的命令
+
+```bash
+RUN <command>
+RUN ["executable", "param1", "param2"]
+第一种后边直接跟shell命令
+  在linux操作系统上默认 /bin/sh -c
+  在windows操作系统上默认 cmd /S /C
+第二种是类似于函数调用。
+  可将executable理解成为可执行文件，后面就是两个参数。
+```
+
+##### CMD
+
+1. 功能为容器启动时要运行的命令
+
+```bash
+CMD ["executable","param1","param2"]
+CMD ["param1","param2"]
+CMD command param1 param2
+# 这里边包括参数的一定要用双引号，就是",不能是单引号。千万不能写成单引号。
+```
+
+##### RUN & CMD
+
+不要把RUN和CMD搞混了。
+
+RUN是构件容器时就运行的命令以及提交运行结果
+
+CMD是容器启动时执行的命令，在构件时并不运行，构件时紧紧指定了这个命令到底是个什么样子
+
+
+
+##### LABEL
+
+1. 功能是为镜像指定标签
+
+```bash
+LABEL <key>=<value> <key>=<value> <key>=<value> ...
+```
+
+##### MAINTAINER
+
+1. 指定作者
+
+##### EXPOSE
+
+1. 功能为暴漏容器运行时的监听端口给外部
+2. 但是EXPOSE并不会使容器访问主机的端口
+3. 如果想使得容器与主机的端口有映射关系，必须在容器启动的时候加上 -P参数
+
+##### ENV
+
+1. 功能为设置环境变量
+
+   语法有两种
+
+   ```
+   1. ENV <key> <value>
+   2. ENV <key>=<value> ...
+   ```
+
+   两者的区别就是第一种是一次设置一个，第二种是一次设置多个
+
+##### ADD
+
+ 一个复制命令，把文件复制到景象中。
+
+如果把虚拟机与容器想象成两台linux服务器的话，那么这个命令就类似于scp，只是scp需要加用户名和密码的权限验证，而ADD不用。
+
+语法如下：
+
+```
+1. ADD <src>... <dest>
+2. ADD ["<src>",... "<dest>"]
+```
+
+<dest>路径的填写可以是容器内的绝对路径，也可以是相对于工作目录的相对路径
+
+<src>可以是一个本地文件或者是一个本地压缩文件，还可以是一个url
+
+如果把<src>写成一个url，那么ADD就类似于wget命令
+
+如以下写法都是可以的：
+
+```
+ADD test relativeDir/ 
+ADD test /relativeDir
+ADD http://example.com/foobar /
+```
+
+尽量不要把<scr>写成一个文件夹，如果<src>是一个文件夹了，复制整个目录的内容,包括文件系统元数据
+
+##### COPY
+
+语法如下：
+
+```
+1. COPY <src>... <dest>
+2. COPY ["<src>",... "<dest>"]
+```
+
+与ADD的区别
+
+COPY的<src>只能是本地文件，其他用法一致
