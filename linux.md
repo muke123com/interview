@@ -169,19 +169,24 @@ server {
 
 ## [docker](http://www.baidu.com)
 
-```python
+```bash
 # 安装
 yum install epel-release
 yum install docker-io
 docker images # 查看镜像
 docker ps     # 查看启动容器
 docker stop b620e82576b5  # 关闭容器
-docker rm b620e82576b5  # 关闭容器
+docker rm b620e82576b5  # 删除容器
+docker commit afcaf46e8305 centos-vim   # 保存镜像
+docker rmi b4e250e703el   # 删除镜像
 # 安装nginx例子
 docker search nginx # 搜索
 docker pull nginx
-docker run -p 8080:80 -d docker.io/nginx # 启动nginx
-docker run -it nginx /bin/bash # 进入容器
+
+docker run -it -p 3000:3000 -v /home/docker_node/test-node:/home/test-node2 --privileged=true node-test # 端口映射，目录挂载
+        
+docker run -it nginx /bin/bash # 运行容器
+docker exec -it 0beeeb8d4f2f /bin/bash  # 进入容器
 
 docker build -t test-node .
 ```
