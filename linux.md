@@ -177,6 +177,7 @@ docker images # 查看镜像
 docker ps     # 查看启动容器
 docker stop b620e82576b5  # 关闭容器
 docker rm b620e82576b5  # 关闭容器
+docker exec -it 00ee65f79c5d /bin/bash  # 进入容器
 # 安装nginx例子
 docker search nginx # 搜索
 docker pull nginx
@@ -196,5 +197,16 @@ postgres.img
 [root@localhost2 ~]# rz
 [root@localhost2 ~]# docker load < postgres.img 
 [root@localhost2 ~]# docker images
+```
+
+问题
+
+**1.Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?**
+
+```
+systemctl daemon-reload
+service docker restart
+sudo service docker status (should see active (running))
+sudo docker run hello-world
 ```
 
