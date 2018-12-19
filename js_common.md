@@ -139,3 +139,24 @@ function printValue(item){
 chunk(data.concat(),printValue);
 ```
 
+```js
+//jsonp跨域
+//方法1
+$.ajax({
+    url: "http://localhost:3000/jsonp",
+    type: "GET",
+    dataType: "jsonp",  //指定服务器返回的数据类型
+    jsonpCallback: "getData",  //指定回调函数名称
+    success: function (data) {
+        
+    }
+});
+//方法2
+var script = document.createElement('script');
+script.src = 'http://localhost:3000/jsonp?callback=getData';
+document.head.appendChild(script);
+
+function getData(a) {
+    console.log(a)
+}
+```
