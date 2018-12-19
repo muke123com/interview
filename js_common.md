@@ -116,3 +116,26 @@ var Index = {
     }
 }
 ```
+
+```js
+//数组分块
+function chunk(array,process,context){
+    setTimeout(function(){
+        //取出下一个条目并处理
+        var item = array.shift();
+        process.call(context,item);
+        //若还有条目，再设置另一个定时器
+        if(array.length > 0){
+            setTimeout(arguments.callee,100);
+        }
+    },100);    
+}
+
+var data = [1,2,3,4,5,6,7,8,9,0];
+function printValue(item){
+    var div = document.getElementById('myDiv');
+    div.innerHTML += item + '<br>';
+}
+chunk(data.concat(),printValue);
+```
+

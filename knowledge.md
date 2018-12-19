@@ -147,3 +147,5 @@ var obj = { a: 1 };
 var copy = Object.assign({}, obj);
 console.log(copy); // { a: 1 }
 ```
+
+同步代码优先执行
