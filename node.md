@@ -1,5 +1,9 @@
 # nodejs
 
+```
+npm install -g cnpm --registry=https://registry.npm.taobao.org
+```
+
 ### 语法
 
 ```javascript
