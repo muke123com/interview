@@ -18,6 +18,12 @@
 - 修改反向代理 端口号：index.js -> host, port
 - 路由children 需要 <router-view></router-view>
 - 事件修饰符 `.stop .prevent .capture .self .once`
+- 事件传参 `@click="f($event)"`
+- Vue 不能检测以下变动的数组： 
+  - ① 当你利用索引直接设置一个项时，vm.items[indexOfItem] = newValue
+  - ② 当你修改数组的长度时，例如： vm.items.length = newLength
+
+
 
 #### 生命周期
 - Vue.use 使用vue插件

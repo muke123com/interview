@@ -32,3 +32,34 @@ git pull --rebase origin master
 git push --set-upstream origin master
 ```
 
+多个远程分支
+
+`.git/config`  中添加远程地址
+
+```bash
+[remote "origin"]
+	url = https://github.com/muke123com/learn_node.git
+	fetch = +refs/heads/*:refs/remotes/origin/*
+[remote "mirror"]
+	url = http://git.quandashi.cn:3000/mukeke/qds-node.git
+	fetch = +refs/heads/*:refs/remotes/origin/*
+[branch "master"]
+	remote = origin
+	remote = mirror
+	merge = refs/heads/master
+[branch "test"]
+	remote = origin
+	remote = mirror
+	merge = refs/heads/test
+```
+
+```bash
+git pull origin master
+git pull mirror master
+```
+
+```bash
+git push origin master
+git push mirror master
+```
+

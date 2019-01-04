@@ -160,3 +160,23 @@ function getData(a) {
     console.log(a)
 }
 ```
+
+```js
+//自动选中标签
+function selectText(element) {
+    var text = document.getElementById(element);
+    if (document.body.createTextRange) {
+        var range = document.body.createTextRange();
+        range.moveToElementText(text);
+        range.select();
+    } else if (window.getSelection) {
+        var selection = window.getSelection();
+        var range = document.createRange();
+        range.selectNodeContents(text);
+        selection.removeAllRanges();
+        selection.addRange(range);
+    } else {
+        alert("none");
+    }
+}
+```
