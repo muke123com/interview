@@ -165,6 +165,16 @@ server {
 		proxy_pass http://localhost:8081;
 	}
 }
+
+# 127.0.0.1:3001/www/index.html
+# 目录 D:/site/ol_video/www/index.html
+server{
+    listen 3001;
+    server_name 127.0.0.1;
+    location /www/ {
+        root D:/site/ol_video/;
+    }
+}
 ```
 
 ## [docker](http://www.baidu.com)
