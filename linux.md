@@ -80,6 +80,63 @@ cat /proc/version  # 查看系统信息
 tailf app.log  # 查看日志，自动更新
 /boot/grub2/grub.cfg  # 修改命令行分辨率
 ```
+```bash
+# 压缩
+tar -cvf examples.tar files|dir
+#说明：
+-c, --create  create a new archive 创建一个归档文件
+-v, --verbose verbosely list files processed 显示创建归档文件的进程
+-f, --file=ARCHIVE use archive file or device ARCHIVE  后面要立刻接被处理的档案名,比如--file=examples.tar
+
+#举例：
+tar -cvf file.tar file1       #file1文件
+tar -cvf file.tar file1 file2 #file1，file2文件
+tar -cvf file.tar dir         #dir目录
+
+# 解压缩
+tar -xvf examples.tar （解压至当前目录下）
+tar -xvf examples.tar  -C /path (/path 解压至其它路径)
+#说明：
+-x, --extract, extract files from an archive 从一个归档文件中提取文件
+#举例：
+tar -xvf file.tar
+tar -xvf file.tar -C /temp  #解压到temp目录下
+```
+
+```bash
+useradd #添加用户
+adduser #添加用户
+passwd #为用户设置密码
+usermod #修改用户命令，可以通过usermod 来修改登录名、用户的家目录等等；
+pwcov #同步用户从/etc/passwd 到/etc/shadow
+pwck #pwck是校验用户配置文件/etc/passwd 和/etc/shadow 文件内容是否合法或完整；
+pwunconv #是pwcov 的立逆向操作，是从/etc/shadow和 /etc/passwd 创建/etc/passwd ，然后会删除 /etc/shadow 文件；
+finger #查看用户信息工具 id #查看用户的UID、GID及所归属的用户组 chfn #更改用户信息工具
+
+su #用户切换工具 sudo #sudo 是通过另一个用户来执行命令（execute a command as another user），su 是用来切换用户，然后通过切换到的用户来完成相应的任务，但sudo 能后面直接执行命令，比如sudo 不需要root 密码就可以执行root 赋与的执行只有root才能执行相应的命令；但得通过visudo 来编辑/etc/sudoers来实现；
+visudo #visodo 是编辑 /etc/sudoers 的命令；也可以不用这个命令，直接用vi 来编辑 /etc/sudoers 的效果是一样的；
+sudoedit #和sudo 功能差不多；
+
+2）管理用户组（group）的工具或命令；
+groupadd #添加用户组；
+groupdel #删除用户组；
+groupmod #修改用户组信息
+groups #显示用户所属的用户组
+grpck grpconv #通过/etc/group和/etc/gshadow 的文件内容来同步或创建/etc/gshadow ，如果/etc/gshadow 不存在则创建；
+grpunconv #通过/etc/group 和/etc/gshadow 文件内容来同步或创建/etc/group ，然后删除gshadow文件；
+
+# 将一个已有用户 cnzhx 增加到一个已有用户组 apache 中，使此用户组成为该用户的附加用户组，可以使用带 -a 参数的 usermod  指令。-a 代表 append， 也就是将用户添加到新用户组中而不必离开原有的其他用户组。不过需要与 -G 选项配合使用：
+usermod -a -G apache cnzhx
+# 如果要同时将 cnzhx 的主要用户组改为 apache，则直接使用 -g 选项：
+usermod -g apache cnzhx
+# 如果要将一个用户从某个组中删除，则
+gpasswd -d user group
+#但是这个时候需要保证 group 不是 user 的主组。
+
+```
+
+
+
 * **删不掉.swp文件解决方法：结束vim.exe这个进程**
 * 修改网卡不起作用  onboot=no  改成yes
 
@@ -377,7 +434,7 @@ openssl req -new -x509 -key privkey.pem -out cacert.pem -days 1095
 ## 有了privkey.pem和cacert.pem文件后就可以在自己的程序中使用了，比如做一个加密通讯的服务器
 ```
 
-
+[Centos7下安装及配置PPTP VPN](https://yq.aliyun.com/articles/427931)
 
 
 

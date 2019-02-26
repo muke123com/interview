@@ -1,5 +1,9 @@
 `git show --name-only` 只显示文件名
 
+`git diff commit1 commit2 --stat `查看两个commit文件差异
+
+
+
 ```bash
 npm install -g cnpm --registry=https://registry.npm.taobao.org
 ```
