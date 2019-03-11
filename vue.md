@@ -18,6 +18,23 @@
 - 修改反向代理 端口号：index.js -> host, port
 - 路由children 需要 <router-view></router-view>
 - 事件修饰符 `.stop .prevent .capture .self .once`
+- 事件传参 `@click="f($event)"`
+- Vue 不能检测以下变动的数组： 
+  - ① 当你利用索引直接设置一个项时，vm.items[indexOfItem] = newValue
+  - ② 当你修改数组的长度时，例如： vm.items.length = newLength
+
+- ```js
+  // 监听json内数据变化
+  watch: {
+      prop: {
+          handle(oldValue,newValue){},
+          deep: true
+      }
+  } 
+  ```
+
+
+
 
 #### 生命周期
 - Vue.use 使用vue插件
@@ -101,7 +118,7 @@ export default {
 ```
 
 #### Vuex
-![Image text](vuex.png)
+![Image text](img/vuex.png)
 > 管理全局共享数据
 ##### 核心概念
 - `state` 单一状态树，作为唯一数据源存在 (不同组件使用统一的数据源)。
@@ -149,3 +166,10 @@ export default {
         
 ```
 
+
+
+#### 组件传值
+
+
+
+![Image text](img/parent-child.png)

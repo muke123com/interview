@@ -116,3 +116,67 @@ var Index = {
     }
 }
 ```
+
+```js
+//数组分块
+function chunk(array,process,context){
+    setTimeout(function(){
+        //取出下一个条目并处理
+        var item = array.shift();
+        process.call(context,item);
+        //若还有条目，再设置另一个定时器
+        if(array.length > 0){
+            setTimeout(arguments.callee,100);
+        }
+    },100);    
+}
+
+var data = [1,2,3,4,5,6,7,8,9,0];
+function printValue(item){
+    var div = document.getElementById('myDiv');
+    div.innerHTML += item + '<br>';
+}
+chunk(data.concat(),printValue);
+```
+
+```js
+//jsonp跨域
+//方法1
+$.ajax({
+    url: "http://localhost:3000/jsonp",
+    type: "GET",
+    dataType: "jsonp",  //指定服务器返回的数据类型
+    jsonpCallback: "getData",  //指定回调函数名称
+    success: function (data) {
+        
+    }
+});
+//方法2
+var script = document.createElement('script');
+script.src = 'http://localhost:3000/jsonp?callback=getData';
+document.head.appendChild(script);
+
+function getData(a) {
+    console.log(a)
+}
+```
+
+```js
+//自动选中标签
+function selectText(element) {
+    var text = document.getElementById(element);
+    if (document.body.createTextRange) {
+        var range = document.body.createTextRange();
+        range.moveToElementText(text);
+        range.select();
+    } else if (window.getSelection) {
+        var selection = window.getSelection();
+        var range = document.createRange();
+        range.selectNodeContents(text);
+        selection.removeAllRanges();
+        selection.addRange(range);
+    } else {
+        alert("none");
+    }
+}
+```
