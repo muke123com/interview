@@ -23,6 +23,17 @@
   - ① 当你利用索引直接设置一个项时，vm.items[indexOfItem] = newValue
   - ② 当你修改数组的长度时，例如： vm.items.length = newLength
 
+- ```js
+  // 监听json内数据变化
+  watch: {
+      prop: {
+          handle(oldValue,newValue){},
+          deep: true
+      }
+  } 
+  ```
+
+
 
 
 #### 生命周期
@@ -107,7 +118,7 @@ export default {
 ```
 
 #### Vuex
-![Image text](vuex.png)
+![Image text](img/vuex.png)
 > 管理全局共享数据
 ##### 核心概念
 - `state` 单一状态树，作为唯一数据源存在 (不同组件使用统一的数据源)。
@@ -155,3 +166,10 @@ export default {
         
 ```
 
+
+
+#### 组件传值
+
+
+
+![Image text](img/parent-child.png)

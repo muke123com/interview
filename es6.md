@@ -75,7 +75,12 @@ var [a, ...rest] = [1,2,3,4];
         console.log(data);
     })
 ```
+- Promise.all接收一个Promise对象组成的数组作为参数，当这个数组所有的Promise对象状态都变成resolved或者rejected的时候，它才会去调用then方法。
+
+- 与Promise.all相似的是，Promise.race都是以一个Promise对象组成的数组作为参数，不同的是，只要当数组中的其中一个Promsie状态变成resolved或者rejected时，就可以调用.then方法了。
+
 #### async await
+
 ```js
     //定义异步方法
     async function getData() {
@@ -120,4 +125,8 @@ function f() {
 var id = 21;
 f.call({id: 12});
 ```
+
+#### 迭代器(Iterator)和生成器(Generator)
+
+
 
