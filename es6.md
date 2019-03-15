@@ -128,5 +128,54 @@ f.call({id: 12});
 
 #### 迭代器(Iterator)和生成器(Generator)
 
+#### Object对象新增方法
 
+`Object.is()`类似`===`。区别：后者的`NaN`不等于自身，以及`+0`等于`-0`
 
+`Object.assign`方法用于对象的合并，将源对象（source）的所有可枚举属性，复制到目标对象（target）。
+
+**（1）浅拷贝**
+
+`Object.assign`方法实行的是浅拷贝，而不是深拷贝。也就是说，如果源对象某个属性的值是对象，那么目标对象拷贝得到的是这个对象的引用。
+
+```javascript
+const obj1 = {a: {b: 1}};
+const obj2 = Object.assign({}, obj1);
+
+obj1.a.b = 2;
+obj2.a.b // 2
+```
+
+**（2）同名属性的替换**
+
+对于这种嵌套的对象，一旦遇到同名属性，`Object.assign`的处理方法是替换，而不是添加。
+
+```javascript
+const target = { a: { b: 'c', d: 'e' } }
+const source = { a: { b: 'hello' } }
+Object.assign(target, source)
+// { a: { b: 'hello' } }
+```
+
+**（3）数组的处理**
+
+`Object.assign`可以用来处理数组，但是会把数组视为对象。
+
+```javascript
+Object.assign([1, 2, 3], [4, 5])
+// [4, 5, 3]
+```
+
+**（4）取值函数的处理**
+
+`Object.assign`只能进行值的复制，如果要复制的值是一个取值函数，那么将求值后再复制。
+
+```javascript
+const source = {
+  get foo() { return 1 }
+};
+const target = {};
+
+Object.assign(target, source)
+// { foo: 1 }
+```

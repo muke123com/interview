@@ -14,11 +14,20 @@
 - fastclick ：消除 300ms 的延迟
 
 #### 基础问题
-- 开启eslint： index.js -> useEslint: true
-- 修改反向代理 端口号：index.js -> host, port
-- 路由children 需要 <router-view></router-view>
+- 开启eslint： `index.js -> useEslint: true`
+
+- 修改反向代理 端口号：`index.js -> host, port`
+
+- 路由children 需要` <router-view></router-view>`
+
 - 事件修饰符 `.stop .prevent .capture .self .once`
+
 - 事件传参 `@click="f($event)"`
+
+- 修改css loader   `index.js-> exports.cssLoaders` 中修改
+
+- js中使用静态文件`require("@/assets/logo.png")`
+
 - Vue 不能检测以下变动的数组： 
   - ① 当你利用索引直接设置一个项时，vm.items[indexOfItem] = newValue
   - ② 当你修改数组的长度时，例如： vm.items.length = newLength
@@ -173,3 +182,25 @@ export default {
 
 
 ![Image text](img/parent-child.png)
+
+#### axios
+
+```js
+// axios
+axios.get(url,options).then()
+axios.post(url,options).then()
+///////////////////////////////////////////////
+axios.all([fn1(), fn2()])
+  .then(axios.spread(function (acct, perms) {
+    // 所有请求完成后触发
+  }));
+///////////////////////////////////////////////
+axios({
+  method:'get',
+  url:'http://bit.ly/2mTM3nY',
+  responseType:'stream'
+})
+  .then(function(response) {
+  response.data.pipe(fs.createWriteStream('ada_lovelace.jpg'))
+});
+```
