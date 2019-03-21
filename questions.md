@@ -1,3 +1,99 @@
+# 2019
+
+```js
+Array.isArray  //判断是否为数组
+```
+
+```js
+   //数组扁平化
+   let array = [1, [2], [3, [4, [5]]]]   
+   //toString方法
+   function flat(arr) {
+     return arr.toString().split(',').map(val => +val)
+   }
+   console.log(flat(arr))
+   
+```
+
+```js
+//this 指向
+function My(){
+    print = function(){
+        console.log(1);
+    }
+    return this;
+}
+My.print = function(){
+    console.log(2);
+}
+My.prototype.print = function(){
+    console.log(3);
+}
+var print = function(){
+    console.log(4);
+}
+function print(){
+    console.log(5);
+}
+print();        4
+My.print();     2
+My().print();   1   
+print();        1 //My()执行后 print函数变为My 内部的print
+new My().print();   3  
+new new My().print();  3
+```
+
+```js
+var arr = [
+    {
+        'name': 'a1',
+        'children': [
+            {
+                'name': 'a1b1',
+                'children': [
+                    {
+                        'name': 'a1b1c1',
+                        'children': [
+                            {'name': 'javascript'},
+                            {'name': 'java'},
+                            {'name': 'python'},
+                            {'name': 'c++'},
+                            {'name': 'go'},
+                        ]
+                    },
+                    {
+                        'name': 'abc2',
+                        'children': []
+                    }
+                ]
+            }
+        ]
+    }
+]
+getPath(arr)；
+//查询json关键词获取路径
+let name = 'java';
+function getPath(arr) {
+    if(!arr || arr.length === 0) {
+        path.pop();
+        return;
+    }
+    for(let i=0;i<arr.length;i++){
+        path.push(arr[i]['name']);
+        if(arr[i]['name'] === name){
+            _this.pathStr = path.join("/");
+            path = [];
+            hasKey = true;
+            break;
+        }else {
+            getPath(arr[i]['children']);
+        }
+    }
+}
+```
+
+
+
 # 2018
 
 > flex布局，数组方法，vuex，vue-router

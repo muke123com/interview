@@ -1,6 +1,6 @@
 # nodejs
 
-```
+```bash
 npm install -g cnpm --registry=https://registry.npm.taobao.org
 ```
 
@@ -96,4 +96,6 @@ journal=true #每次写入会记录一条操作日志（通过journal可以重�
 #即使宕机，启动时wiredtiger会先将数据恢复到最近一次的checkpoint点，然后重放后续的journal日志来恢复。
 storageEngine=wiredTiger  #存储引擎有mmapv1、wiretiger、mongorocks
 ```
+
+##### token
 
