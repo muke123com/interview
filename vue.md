@@ -28,6 +28,8 @@
 
 - js中使用静态文件`require("@/assets/logo.png")`
 
+- 图片显示403：`<meta name="referrer" content="no-referrer"/>`
+
 - Vue 不能检测以下变动的数组： 
   - ① 当你利用索引直接设置一个项时，vm.items[indexOfItem] = newValue
   - ② 当你修改数组的长度时，例如： vm.items.length = newLength
@@ -204,3 +206,34 @@ axios({
   response.data.pipe(fs.createWriteStream('ada_lovelace.jpg'))
 });
 ```
+
+#### vue-router
+
+**router-view**
+
+正常写法中，一层路径(`/xxx`)对应一个`router-view`。
+
+比如url: /a/b/c (假设a、b、c都为正常路径，不会作为参数)
+
+- 那`/a`对应的就是App.vue中的router-view，`/a`进入`a.vue`中
+- 那`/a/b`对应的就是a.vue中的router-view， `/a/b`进入`b.vue`中
+
+以此类推。
+
+**router-link**
+
+```vue
+<router-link tag="li" v-for="(item, key) in list" :key="item['id']" :to="{path: ''+item['id'] }"></router-link>
+```
+
+#### vue transition
+
+1. `v-enter`：定义进入过渡的开始状态。在元素被插入之前生效，在元素被插入之后的下一帧移除。
+2. `v-enter-active`：定义进入过渡生效时的状态。在整个进入过渡的阶段中应用，在元素被插入之前生效，在过渡/动画完成之后移除。这个类可以被用来定义进入过渡的过程时间，延迟和曲线函数。
+3. `v-enter-to`: **2.1.8版及以上** 定义进入过渡的结束状态。在元素被插入之后下一帧生效 (与此同时 `v-enter` 被移除)，在过渡/动画完成之后移除。
+4. `v-leave`: 定义离开过渡的开始状态。在离开过渡被触发时立刻生效，下一帧被移除。
+5. `v-leave-active`：定义离开过渡生效时的状态。在整个离开过渡的阶段中应用，在离开过渡被触发时立刻生效，在过渡/动画完成之后移除。这个类可以被用来定义离开过渡的过程时间，延迟和曲线函数。
+6. `v-leave-to`: **2.1.8版及以上** 定义离开过渡的结束状态。在离开过渡被触发之后下一帧生效 (与此同时 `v-leave` 被删除)，在过渡/动画完成之后移除。
+
+`v-` 是这些类名的默认前缀。如果你使用了 `<transition name="my-transition">`，那么 `v-enter` 会替换为 `my-transition-enter`。
+

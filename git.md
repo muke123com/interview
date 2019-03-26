@@ -1,4 +1,8 @@
-`git show --name-only` 只显示文件名
+[TOC]
+
+### git笔记
+
+git show --name-only` 只显示文件名
 
 `git diff commit1 commit2 --stat `查看两个commit文件差异
 
@@ -67,3 +71,8 @@ git push origin master
 git push mirror master
 ```
 
+### 搭建git服务器
+
+```bash
+gitlab
+```

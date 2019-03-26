@@ -1,3 +1,5 @@
+[TOC]
+
 ## 布局
 
 #### flex
@@ -36,3 +38,36 @@
 `flex`属性是`flex-grow`, `flex-shrink` 和 `flex-basis`的简写，默认值为`0 1 auto`。后两个属性可选。
 
 `align-self`属性允许单个项目有与其他项目不一样的对齐方式，可覆盖`align-items`属性。默认值为`auto`，表示继承父元素的`align-items`属性，如果没有父元素，则等同于`stretch`。
+
+#### 伪类，伪元素
+
+伪类
+
+```css
+:active, :focus, :hover, :link, :visited, :first-child
+```
+
+伪元素
+
+```css
+::first-letter, ::first-line, ::before, ::after
+```
+
+推荐：伪类用一个冒号来表示，而伪元素则用两个冒号来表示
+
+#### 选择符
+
+```css
+/* 紧接在另一个元素后的元素，而且二者有相同的父元素 */
+div+p {
+	background-color:yellow;
+}
+```
+
+```css
+/* 紧接在另一个元素后的所有相邻兄弟元素，而且二者有相同的父元素 */
+div~p {
+	background-color:yellow;
+}
+```
+
