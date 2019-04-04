@@ -197,3 +197,16 @@ function selectText(element) {
 	}
 }(640);
 ```
+
+```js
+// 图片数据一维数组中获取canvas绘画坐标
+let buffer32 = new Uint32Array(imgData.data.buffer);
+for(let i=0;i<img.width;i+=2){
+    for(let j=0;j<img.height;j+=2){
+        if(buffer32[j * img.width + i]){
+            let p = new Point(i,j);
+            _this.points.push(p);
+        }
+    }
+}
+```
