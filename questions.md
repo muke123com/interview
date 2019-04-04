@@ -41,6 +41,8 @@ My().print();   1
 print();        1 //My()执行后 print函数变为My 内部的print
 new My().print();   3  
 new new My().print();  3
+// 可以理解为 new (new My().print)()， new My().print是function (){console.log(3)}
+// 类似于 function T() { console.log(3) }  求new T()的值
 ```
 
 ```js
