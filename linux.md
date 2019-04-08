@@ -143,6 +143,23 @@ gpasswd -d user group
 ## Nginx
 
 ```nginx
+server{
+    listen 3001;
+    server_name 127.0.0.1;
+    location   /test/  {
+        # 请求/test/1.jpg（省略了协议和域名），将会返回文件/usr/local/1.jpg
+        alias /usr/local/;
+        # 请求/test/1.jpg，将会返回文件/usr/local/test/1.jpg。
+        root /usr/local/;
+        # 请求/test/1.jpg，将会被nginx转发请求到http://127.0.0.1:8080/1.jpg
+        proxy_pass http://127.0.0.1:8080/;
+    }
+}
+```
+
+
+
+```nginx
 
 start nginx    # 启动
 nginx -s stop  # 关闭
