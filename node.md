@@ -1,8 +1,39 @@
+[TOC]
+
 # nodejs
 
 ```bash
 npm install -g cnpm --registry=https://registry.npm.taobao.org
 ```
+
+## 常用方法
+
+#### 获取默认编码为gbk的txt内容
+
+```js
+// 获取默认编码为gbk的txt内容
+booksModel.getBookContentStream = async (name, encode) => {
+    return new Promise(function(resolve, reject) {
+        let rs = fs.createReadStream(booksDirPath + name)
+            .pipe(iconv.decodeStream('gbk'))
+            // .pipe(iconv.encodeStream('utf-8')); 
+        var data='';
+        rs.on('data',function(trunk){
+            data += trunk;
+        })
+        rs.on('end',function(){
+            try {
+                let book = data;
+                resolve(book);
+            }catch (err){
+                reject(err);
+            }
+        })
+    })
+};
+```
+
+
 
 ### 语法
 
