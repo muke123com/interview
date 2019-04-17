@@ -11,6 +11,8 @@ npm install -g cnpm --registry=https://registry.npm.taobao.org
 #### 获取默认编码为gbk的txt内容
 
 ```js
+const iconv = require('iconv-lite');
+const iconv = require('fs');
 // 获取默认编码为gbk的txt内容
 booksModel.getBookContentStream = async (name, encode) => {
     return new Promise(function(resolve, reject) {
