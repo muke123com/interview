@@ -1,3 +1,5 @@
+[TOC]
+
 ## Linux
 
 ```bash
@@ -425,9 +427,9 @@ ADD http://example.com/foobar /
 
 COPY的<src>只能是本地文件，其他用法一致
 
+##### 
 
-
-
+## linux 生成证书
 
 ```bash
 1、生成RSA密钥的方法 
@@ -450,8 +452,6 @@ openssl req -new -x509 -key privkey.pem -out cacert.pem -days 1095
 
 ## 有了privkey.pem和cacert.pem文件后就可以在自己的程序中使用了，比如做一个加密通讯的服务器
 ```
-
-[Centos7下安装及配置PPTP VPN](https://yq.aliyun.com/articles/427931)
 
 
 

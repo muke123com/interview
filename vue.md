@@ -199,6 +199,7 @@ axios.all([fn1(), fn2()])
 ///////////////////////////////////////////////
 axios({
   method:'get',
+  params: {},  //get为params, post为data
   url:'http://bit.ly/2mTM3nY',
   responseType:'stream'
 })

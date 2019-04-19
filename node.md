@@ -35,6 +35,61 @@ booksModel.getBookContentStream = async (name, encode) => {
 };
 ```
 
+#### 搜索文件夹中文件关键字
+
+```js
+// 搜索文件夹中文件关键字
+const path = require('path');
+const fs = require('fs');
+let filePath = './books';
+let key = '啊啊啊';
+
+class FindFile {
+    constructor(){
+        
+    }
+    findFolder(filePath){
+        if(!fs.existsSync(filePath)){
+            console.log('找不到' + filePath);
+            return;
+        } 
+        let files = fs.readdirSync(filePath)
+        for (let i = 0; i < files.length; i++) {
+            let f = filePath + '/' + files[i];
+            if(isDir(f)) {
+                this.findFolder(f)
+                continue
+            }
+            if(isFile(f)) {
+                this.findFile(f);
+            }
+        }
+    }
+    findFile(filePath){
+        let text = fs.readFileSync(filePath); 
+        text = text.toString();
+        if(key != ""){
+            if(text.indexOf(key) != -1){
+                text = text.replace(new RegExp(key, 'g'), `****${key}****`)
+            }
+        }
+        console.log(text);
+    }
+}
+
+function isDir(filePath){
+    return fs.statSync(filePath).isDirectory();
+}
+
+function isFile(filePath){
+    return fs.statSync(filePath).isFile();
+}
+
+let f = new FindFile();
+f.findFolder(filePath);
+
+```
+
 
 
 ### 语法
@@ -65,7 +120,7 @@ server.listen(8080,()=>{
 })
 ```
 
-##### express
+#### express
 
 ```js
 app.use() //中间件=>请求与响应间发生的事
@@ -76,7 +131,7 @@ res.download()  //下载
 res.jsonp()  //配合jsonp跨域处理
 ```
 
-##### koa
+#### koa
 
 ```js
 // 1.引入对象
@@ -91,11 +146,20 @@ server.use((ctx)=>{
 server.listen(3000, ()=>{
     console.log(3000)
 });
+
+
+//接收参数
+ctx.params.name   // /:name
+ctx.query.title   // get
+ctx.request.body.username;   // post 
+
+// 使用next() 前台404
+await next();
 ```
 
+​	
 
-
-##### 数据库
+#### 数据库
 
 MongoDB
 
@@ -130,5 +194,25 @@ journal=true #每次写入会记录一条操作日志（通过journal可以重�
 storageEngine=wiredTiger  #存储引擎有mmapv1、wiretiger、mongorocks
 ```
 
-##### token
+#### token(learn_node->model/jwt)
+
+1. 登陆时，客户端发送用户名密码
+2. 服务端验证用户名密码是否正确，校验通过就会生成一个有时效的token串，发送给客户端
+3. 客户端储存token,一般都会存储在localStorage或者cookie里面
+4. 客户端每次请求时都带有token，可以将其放在请求头里，每次请求都携带token
+5. 服务端验证token，所有需要校验身份的接口都会被校验token，若token解析后的数据包含用户身份信息，则身份验证通过，返回数据
+
+##### Payload
+
+```
+iss(issuer): 签发人
+exp (expiration time): 过期时间
+sub (subject): 主题
+aud (audience): 受众
+nbf (Not Before): 生效时间
+iat (Issued At): 签发时间
+jti (JWT ID): 编号
+```
+
+
 
