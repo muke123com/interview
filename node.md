@@ -204,7 +204,7 @@ storageEngine=wiredTiger  #存储引擎有mmapv1、wiretiger、mongorocks
 
 ##### Payload
 
-```
+```js
 iss(issuer): 签发人
 exp (expiration time): 过期时间
 sub (subject): 主题
