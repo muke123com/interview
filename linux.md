@@ -145,6 +145,15 @@ gpasswd -d user group
 ## Nginx
 
 ```nginx
+# Nginx服务器js加载不全，报206 (Partial Content)错误
+proxy_buffer_size 128k;
+proxy_buffers   32 128k;
+proxy_busy_buffers_size 128k;
+```
+
+
+
+```nginx
 server{
     listen 3001;
     server_name 127.0.0.1;
@@ -190,6 +199,10 @@ http {
     sendfile_max_chunk 100k;  #每个进程每次调用传输数量不能大于设定的值，默认为0，即不设上限。
     keepalive_timeout 65;  #连接超时时间，默认为75s，可以在http，server，location块。
 
+    proxy_buffer_size 128k;
+	proxy_buffers   32 128k;
+	proxy_busy_buffers_size 128k;
+    
     upstream mysvr {   
       server 127.0.0.1:7878;
       server 192.168.10.121:3333 backup;  #热备
