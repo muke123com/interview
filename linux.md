@@ -61,6 +61,8 @@ ls -la  # 列出当前目录下的所有文件和文件夹
 ls a*   # 列出当前目录下所有以a字母开头的文件
 ls -l *.txt  # 列出当前目录下所有后缀名为txt的文件
 
+ln -s /home/web/log.txt link_log  # 设置软链接，类似windows快捷方式
+
 mv a.txt b.txt  # 文件a重新命名为b
 mv a.txt ./test # 把文件移动到一个目录下
 
