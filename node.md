@@ -216,3 +216,83 @@ jti (JWT ID): 编号
 
 
 
+#### typeorm
+
+##### entity修饰符
+
+```typescript
+@Entity()
+@Index(['category'])  //定义索引
+export class Article {
+  @PrimaryGeneratedColumn() id: number
+
+  /** 标题 */
+  @Column() title: string
+
+  /** 内容 */
+  @Column('text') content: string
+
+  /** 概要 */
+  @Column() summary: string
+
+  /** 缩略图 */
+  @Column() thumbnail: string
+
+  /** 创建时间 */
+  @CreateDateColumn() createdAt: string
+
+  /** 更新时间 */
+  @UpdateDateColumn() updatedAt: string
+
+  /** 原文链接 */
+  @Column() sourceUrl: string
+
+  /** 推送到头条的时间 */
+  @Column('datetime', { nullable: true })
+  headlineTime?: Date
+
+  /** 用户 ID */
+  @Column({ nullable: true })
+  uid?: number
+
+  /** 分类 ID */
+  @Column() categoryId: number
+
+  @OneToOne(type => User)
+  @JoinColumn({ name: 'uid' })
+  user?: User
+
+  @OneToOne(type => Category)
+  @JoinColumn({ name: 'categoryId' })
+  category: Category
+
+  @OneToMany(type => Comment, comment => comment.article)
+  comments: Comment[]
+
+  @ManyToMany(type => Game, game => game.articles)
+  @JoinTable()
+  games: Game[]
+
+  @OneToMany(type => ArticleReadersUser, item => item.article)
+  readers?: ArticleReadersUser[]
+
+  @RelationCount((article: Article) => article.readers, 'readers', qb =>
+    qb.andWhere('readers.like=:like', { like: true })
+  )
+  likeCount: number
+
+  @RelationCount((artile: Article) => artile.comments)
+  commentCount: number
+
+
+  @BeforeInsert()
+  insertSummaryAndThumbnail(): void {
+    this.summary = this.summary || this.content.replace(/<[^>]+>/g, '').slice(0, 120)
+  }
+
+  @BeforeUpdate()
+  updateSummaryAndThumbnail(): void {
+    this.summary = this.summary || this.content.replace(/<[^>]+>/g, '').slice(0, 120)
+  }
+}
+```

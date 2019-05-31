@@ -9,3 +9,5 @@ Shift+鼠标   选择多个区域
 Ctrl+J   复制图层
 
 Ctrl+I   反相
+
+Ctrl+M  整体色调调整曲线
