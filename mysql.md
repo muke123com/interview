@@ -1,3 +1,5 @@
+[TOC]
+
 ## 数据库优化
 
 **技巧1  比较运算符能用 “=”就不用“<>”**
@@ -56,7 +58,7 @@ SELECT price FROM order WHERE id = 1 and region = 'BEIJING';
 
 > EXPLAIN 可以检查索引使用情况以及扫描的行。
 
-
+## 笔记
 
 ```mysql
 # 联表查询
@@ -93,7 +95,32 @@ WHERE fcity IS NULL	  # 判断null
 WHERE fcity REGEXP '^s$'  # 正则表达式	
 ```
 
+### ON DUPLICATE KEY UPDATE
+
+```mysql
+# 如果在INSERT语句末尾指定了ON DUPLICATE KEY UPDATE，并且插入行后会导致在一个UNIQUE索引或PRIMARY KEY中出现重复值，则在出现重复值的行执行UPDATE；如果不会导致唯一值列重复的问题，则插入新行。
+
+# 使用时要创建一个唯一索引 ， 插入或者更新时，以此为标准
+CREATE TABLE `news_test` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `new_title` varchar(255) DEFAULT NULL,
+  `new_abstr` varchar(255) DEFAULT NULL,
+  `new_code` varchar(255) DEFAULT NULL,
+  `update_time` datetime DEFAULT NULL,
+  `create_time` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `new_code_index` (`new_code`) USING BTREE
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+# 执行
+insert into news_test(new_title, new_abstr, new_code, update_time, create_time) values('马刺','湖人',MD5(CONCAT('马刺','湖人')), NOW(), NOW()) on DUPLICATE key Update update_time=now(), create_time=now();
+
+```
+
+
+
 ## 练习
+
 ```mysql
 INSERT INTO checking (customer_id, balance1)
 VALUES
