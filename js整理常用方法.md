@@ -1,3 +1,5 @@
+[TOC]
+
 ## 记录js有用的方法
 
 ```js
@@ -87,6 +89,12 @@ function getCookie(key){
 function clearCookie(name) {
 		setCookie(name, "", -1);
 }
+
+```
+
+### 滚动浮动
+
+```js
 //滚动
 var Index = {
     scrollTop: top,
@@ -117,6 +125,10 @@ var Index = {
 }
 ```
 
+
+
+### 数组分块
+
 ```js
 //数组分块
 function chunk(array,process,context){
@@ -138,6 +150,8 @@ function printValue(item){
 }
 chunk(data.concat(),printValue);
 ```
+
+### jsonp跨域
 
 ```js
 //jsonp跨域
@@ -161,6 +175,8 @@ function getData(a) {
 }
 ```
 
+### 自动选中标签
+
 ```js
 //自动选中标签
 function selectText(element) {
@@ -181,6 +197,8 @@ function selectText(element) {
 }
 ```
 
+### 移动端使用rem，根据设计稿的宽度来传参 比如640 750 1125
+
 ```js
 // 移动端使用rem，根据设计稿的宽度来传参 比如640 750 1125
 !function(designWidth){
@@ -198,6 +216,8 @@ function selectText(element) {
 }(640);
 ```
 
+### 图片数据一维数组中获取canvas绘画坐标
+
 ```js
 // 图片数据一维数组中获取canvas绘画坐标
 let buffer32 = new Uint32Array(imgData.data.buffer);
@@ -208,5 +228,16 @@ for(let i=0;i<img.width;i+=2){
             _this.points.push(p);
         }
     }
+}
+```
+
+### 根据对象数组根据属性去重
+
+```js
+function uniqueCategories(arr) {
+    var res = new Map();
+    return arr.filter(function (item) {
+        return !res.has(item.cgName) && res.set(item.cgName, 1)
+    })
 }
 ```

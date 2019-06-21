@@ -291,7 +291,7 @@ docker run -it -p 3000:3000 -v /home/docker_node/test-node:/home/test-node2 --pr
 docker run -it nginx /bin/bash # 运行容器
 docker exec -it 0beeeb8d4f2f /bin/bash  # 进入容器
 
-docker build -t test-node .
+docker build -t test-node .  # Dockerfile文件目录下执行
 ```
 
 ```python
@@ -469,4 +469,15 @@ openssl req -new -x509 -key privkey.pem -out cacert.pem -days 1095
 ```
 
 
+
+## 安装python
+
+```
+yum install zlib-devel bzip2-devel openssl-devel ncurses-devel sqlite-devel readline-devel tk-devel gcc make
+
+wget https://www.python.org/ftp/python/3.7.0/Python-3.7.0.tgz
+
+tar -zxvf Python-3.7.0.tgz
+
+```
 

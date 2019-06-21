@@ -20,7 +20,24 @@ var [x,y] = [y,x];
 
 ```
 
+#### 数组
+
+```js
+// 类数组转换为数组
+Array.from
+// 判断是否为数组
+Array.isArray
+
+let str = '11'
+Array.of(str)   // ['11']
+// 类似于
+new Array('11')  // ['11]
+```
+
+
+
 #### 扩展运算符
+
 ```js
 var arr = ['a','b','c'];
 var f = function(a,b,c) {
