@@ -71,6 +71,14 @@ git push origin master
 git push mirror master
 ```
 
+合并commit
+
+```bash
+git rebase
+```
+
+
+
 ### 搭建git服务器
 
 ```bash

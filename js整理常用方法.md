@@ -89,6 +89,70 @@ function getCookie(key){
 function clearCookie(name) {
 		setCookie(name, "", -1);
 }
+//下拉框优化
+function selectBeauty() {
+    var select = $("form select");
+    // var select = $("select");
+    select.each(function (i) {
+        $(this).hide();
+        var name = $(this).attr("name");
+        var selectedText = $(this).find("option:selected").text();
+        var value = $(this).val();
+        var options = $(this).find("option");
+        var selectBox = $("<div class='m-select-box'><i class='icon'></i></div>");
+        if(select.hasClass("select-search")){
+            var input = $("<input type='text' class='text' value='"+selectedText+"' />");
+        }else {
+            var input = $("<input type='text' class='text' value='"+selectedText+"' readonly />");
+        }
+        var ul = $("<dl class='scroll'></dl>");
+        options.each(function (i) {
+            var text = $(this).text();
+            var value = $(this).val();
+            ul.append("<dd data-value='"+value+"' title='"+text+"'>"+text+"</dd>");
+        });
+        selectBox.append(input);
+        selectBox.append(ul);
+        $(this).siblings(".m-select-box").remove();
+        $(this).after(selectBox);
+    });
+    //下拉框搜索
+    $(document).on("input", ".m-select-box .text", function () {
+        var inputText = $(this).val();
+        var select = $(this).parents(".m-select-box").siblings("select");
+        var options = select.find("option");
+        var ul = $(this).siblings("dl");
+        ul.html("");
+        options.each(function () {
+            var text = $(this).text();
+            var value = $(this).val();
+            if(text.indexOf(inputText) != -1) {
+                ul.append("<dd data-value='"+value+"' title='"+text+"'>"+text+"</dd>");
+            }
+        })
+    });
+    //下拉框展开
+    $(document).on("click", ".m-select-box .text, .m-select-box .icon", function () {
+        $(".m-select-box dl").hide();
+        $(this).siblings("dl").show();
+    });
+    //下拉框选择
+    $(document).on("click", ".m-select-box dd", function () {
+        var selectBox = $(this).parents(".m-select-box");
+        var text = $(this).text();
+        var value = $(this).attr("data-value");
+        selectBox.find("input.text").val(text);
+        selectBox.siblings("select").val(value);
+        selectBox.find("dl").hide();
+        selectBox.siblings("select").change();
+    })
+    $("body").click(function (e) {
+        var isSelect = $(e.target).parents(".m-select-box").length;
+        if(isSelect == 0){
+            $(".m-select-box dl").hide()
+        }
+    })
+}
 
 ```
 

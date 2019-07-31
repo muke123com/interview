@@ -99,17 +99,26 @@ var [a, ...rest] = [1,2,3,4];
 #### async await
 
 ```js
-    //定义异步方法
-    async function getData() {
-        return '123456'
-    }
+//定义异步方法
+async function getData() {
+    return '123456'
+}
 
-    async function wait() {
-        var d = await getData()
-        console.log(d);
-    }
+async function wait() {
+    var d = await getData()
+    console.log(d);
+}
 
-    wait();
+wait();
+
+// map中使用await
+arr.map(() => {
+    (async () => {
+        const deepData = await getTrainData(xs, predsYs);
+        drawDeepData(deepData)
+    })()
+})
+    
 ```
 
 #### 箭头函数
