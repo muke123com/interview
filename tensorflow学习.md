@@ -14,6 +14,11 @@ tf.tensor2d([[2, 3, 4], [3, 4, 5]])  //定义二维数组
 tf.zeros([3, 3])  //全是0的数组
 
 tf.ones([3, 3])   //全是1的数组
+add // 加
+sub // 减
+mul // 乘
+square // 平方
+mean // 平均值
 ```
 
 
@@ -41,6 +46,8 @@ biases.print();
 ### tf.randomUniform
 
 ```js
+// tf.tidy执行一个函数并清除所有创建的中间张量，释放它们的GPU内存。 它不清除内部函数的返回值。
+tf.tidy
 // 随机3x3数组, 范围-10到10
 const xs = tf.randomUniform([3, 3], -10, 10);
 xs.print();

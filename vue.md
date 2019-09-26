@@ -44,7 +44,7 @@
   } 
   ```
 
-
++ 锚点跳转 `this.$el.querySelector(selector).scrollIntoView();`   
 
 
 #### 生命周期

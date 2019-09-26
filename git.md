@@ -79,8 +79,18 @@ git rebase
 
 
 
-### 搭建git服务器
+### [搭建git服务器](https://www.jianshu.com/p/ade38a53b1ac)
+
+gitlab
 
 ```bash
-gitlab
+# gitlab 安装脚本
+curl https://packages.gitlab.com/install/repositories/gitlab/gitlab-ee/script.rpm.sh > rpm.sh
+chmod +x rpm.sh  # 给了执行权限  -x去除执行权限
+./rpm.sh
+
+# 使用yum安装gitlab
+yum install -y gitlab-ee
+# 可以看下gitlab-ee包的内容，看到gitlab安装在/opt/gitlab目录下
+rpm -ql gitlab-ee | less
 ```

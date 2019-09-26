@@ -57,6 +57,29 @@ SELECT price FROM order WHERE id = 1 and region = 'BEIJING';
 **技巧12  使用 EXPLAIN 关键字去查看执行计划**
 
 > EXPLAIN 可以检查索引使用情况以及扫描的行。
+>
+> ```mysql
+> explain select * from test
+> ```
+
+```
+
+一、MySQL数据库有几个配置选项可以帮助我们及时捕获低效SQL语句
+
+1，slow_query_log
+这个参数设置为ON，可以捕获执行时间超过一定数值的SQL语句。
+
+2，long_query_time
+当SQL语句执行时间超过此数值时，就会被记录到日志中，建议设置为1或者更短。
+
+3，slow_query_log_file
+记录日志的文件名。
+
+4，log_queries_not_using_indexes
+这个参数设置为ON，可以捕获到所有未使用索引的SQL语句，尽管这个SQL语句有可能执行得挺快。
+```
+
+
 
 ## 笔记
 
@@ -93,6 +116,11 @@ ORDER BY
 WHERE fcity LIKE "%北%"	  # 判断null
 WHERE fcity IS NULL	  # 判断null
 WHERE fcity REGEXP '^s$'  # 正则表达式	
+
+# 排序
+# 字符串数字排序，使用 +0
+SELECT `name`,new_price FROM m_steam WHERE price != "[]" ORDER BY new_price+0 
+
 ```
 
 ### ON DUPLICATE KEY UPDATE
