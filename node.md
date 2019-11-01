@@ -90,6 +90,19 @@ f.findFolder(filePath);
 
 ```
 
+### node自动添加路由
+
+```js
+const glob = require('glob')
+// routes
+glob('routes/*.js', (err, files) => {
+  files.map(item => {
+    const r = require(`./${item}`)
+    app.use(r.routes(), r.allowedMethods())
+  })
+})
+```
+
 
 
 ### 语法
