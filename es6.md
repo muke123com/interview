@@ -46,7 +46,7 @@ var f = function(a,b,c) {
 f(...arr);
 
 var obj = {name: 'aa'};
-var obj2 = {age: 'aa', ...obj};
+var obj2 = {age: 'aa', ...obj};   // 类型Object.assign
 
 //数组深拷贝
 var arr = [1,2,3];

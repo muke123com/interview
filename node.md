@@ -103,8 +103,6 @@ glob('routes/*.js', (err, files) => {
 })
 ```
 
-
-
 ### 语法
 
 ```javascript
@@ -132,6 +130,18 @@ server.listen(8080,()=>{
     console.log('listen:8080')
 })
 ```
+
+#### crypto
+
+```js
+// md5加密
+md5Sign (data) {
+    var md5 = crypto.createHash('md5').update(data).digest('hex');
+    return md5;
+}
+```
+
+
 
 #### express
 
@@ -165,6 +175,7 @@ server.listen(3000, ()=>{
 ctx.params.name   // /:name
 ctx.query.title   // get
 ctx.request.body.username;   // post 
+ctx.header.token    //header
 
 // 使用next() 前台404
 await next();
@@ -309,3 +320,37 @@ export class Article {
   }
 }
 ```
+
+#### egg(node框架)
+
+```bash
+npm init egg --type=simple  # 初始化项目
+```
+
+mysql 配置
+
+```js
+// config/plugin.js
+mysql: {
+     enable: true,
+     package: 'egg-mysql',
+}
+
+// config/config.default.js
+config.mysql = {
+    // 单数据库信息配置
+    client: {
+      // host
+      host: '127.0.0.1',
+      // 端口号
+      port: '3306',
+      // 用户名
+      user: 'root',
+      // 密码
+      password: '123456',
+      // 数据库名
+      database: 'm_blog',
+},
+this.app.mysql.query(sql)  // 使用
+```
+
