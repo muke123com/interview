@@ -327,7 +327,7 @@ export class Article {
 npm init egg --type=simple  # 初始化项目
 ```
 
-mysql 配置
+##### mysql 配置
 
 ```js
 // config/plugin.js
@@ -352,5 +352,17 @@ config.mysql = {
       database: 'm_blog',
 },
 this.app.mysql.query(sql)  // 使用
+```
+
+##### 中间件配置
+
+```js
+// config/config.default.js
+config.middleware = ['test'];   // 默认会影响所有路由
+config.test = {
+    enable: true, // 是否开启该中间件，不写默认开启
+    match: ['/fetch'], // 只匹配指定路由，反之如果只忽略指定路由，可以用ignore
+    // ignore: ['/'] // 不要与match一起使用，避免冲突
+}
 ```
 
