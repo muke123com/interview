@@ -4,6 +4,7 @@
 
 ```bash
 npm install -g cnpm --registry=https://registry.npm.taobao.org
+npm install --production   // 正式环境不下载devDependencies文件
 ```
 
 ## 常用方法

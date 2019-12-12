@@ -4,14 +4,26 @@
 
 #### 技术
 - vue-router：为单页面应用提供的路由系统，使用了 Lazy Loading Routes 技术来实现异步加载优化性能
+
 - vuex：Vue 集中状态管理，在多个组件共享某些状态时非常便捷
+
 - vue-lazyload：实现图片懒加载，节省用户流量，优化页面加载速度
+
 - vue-axios：用来请求后端 API 
+
 - better-scroll：解决移动端各种滚动场景需求的插件，使移动端滑动体验更加流畅
+
 - NeteaseCloudMusicApi：网易云音乐 NodeJS 版 API，提供音乐数据其他工具
+
 - vue-cli：Vue 脚手架工具，快速初始化项目代码
+
 - eslint：代码风格检查工具，帮助我们规范代码书写（一定要养成良好的代码规范）
+
 - fastclick ：消除 300ms 的延迟
+
+  ```js
+  Vue.config.silent   // 取消vue日志警告
+  ```
 
 #### 基础问题
 - 开启eslint： `index.js -> useEslint: true`
