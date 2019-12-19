@@ -124,6 +124,10 @@ WHERE fcity REGEXP '^s$'  # 正则表达式
 # 字符串数字排序，使用 +0
 SELECT `name`,new_price FROM m_steam WHERE price != "[]" ORDER BY new_price+0 
 
+# 分页查询
+# page 页码(0开始)，pageSize 每页数量
+select * from 'table' limit page offset page*pageSize;
+
 ```
 
 ### ON DUPLICATE KEY UPDATE

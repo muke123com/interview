@@ -305,3 +305,22 @@ function uniqueCategories(arr) {
     })
 }
 ```
+
+### 同一class高度自动相等， 为最大高度
+
+```
+items = ['name1', 'name2']
+setTrHeight: function (items) {
+    items.map(function (item) {
+        var className = '.tr-' + item;
+        var trHeight = 0;
+        $(className).each(function () {
+            var h = $(this).height();
+            if(h > trHeight) trHeight = h;
+
+        });
+        $(className).css("height", trHeight);
+        $(className).find(".item").css("height", trHeight + 1);
+    })
+}
+```
