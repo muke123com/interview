@@ -1,3 +1,4 @@
+const webpack = require('webpack');
 module.exports = {
     /*********基本配置***********/
     entry: __dirname + '/app/main.js',
@@ -31,5 +32,11 @@ module.exports = {
                 }
             ]
         }]
-    }
+    },
+    /*********插件***********/
+    plugins: [
+        new webpack.BannerPlugin({
+            banner: '版权所有'
+          })
+    ]
 }
