@@ -150,7 +150,51 @@ gpasswd -d user group
 
 ```
 
+#### CentOS 7防火墙
 
+在CentOS 7或RHEL 7或Fedora中防火墙由firewalld来管理
+
+添加
+
+```
+`firewall-cmd ``--zone=public --add-port=80/tcp --permanent （--permanent永久生效，没有此参数重启后失效）` `firewall-cmd ``--zone=public --add-port=1000-2000/tcp --permanent`
+```
+
+重新载入
+
+```
+`firewall-cmd ``--reload`
+```
+
+查看
+
+```
+`firewall-cmd ``--zone=public --query-port=80/tcp`
+```
+
+删除
+
+```
+`firewall-cmd ``--zone=public --remove-port=80/tcp --permanent`
+```
+
+开启防火墙
+
+```
+`systemctl start firewalld.service`
+```
+
+关闭防火墙
+
+```
+`systemctl stop firewalld.service`
+```
+
+查看运行状态
+
+```
+`firewall-cmd --state ``//running 表示运行`
+```
 
 * **删不掉.swp文件解决方法：结束vim.exe这个进程**
 * 修改网卡不起作用  onboot=no  改成yes
