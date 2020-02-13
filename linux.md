@@ -156,44 +156,44 @@ gpasswd -d user group
 
 添加
 
-```
-`firewall-cmd ``--zone=public --add-port=80/tcp --permanent （--permanent永久生效，没有此参数重启后失效）` `firewall-cmd ``--zone=public --add-port=1000-2000/tcp --permanent`
+```bash
+firewall-cmd --zone=public --add-port=80/tcp --permanent （--permanent永久生效，没有此参数重启后失效）` `firewall-cmd  --zone=public --add-port=1000-2000/tcp --permanent
 ```
 
 重新载入
 
-```
-`firewall-cmd ``--reload`
+```bash
+firewall-cmd --reload
 ```
 
 查看
 
-```
-`firewall-cmd ``--zone=public --query-port=80/tcp`
+```bash
+firewall-cmd --zone=public --query-port=80/tcp
 ```
 
 删除
 
-```
-`firewall-cmd ``--zone=public --remove-port=80/tcp --permanent`
+```bash
+firewall-cmd --zone=public --remove-port=80/tcp --permanent
 ```
 
 开启防火墙
 
-```
-`systemctl start firewalld.service`
+```bash
+systemctl start firewalld.service
 ```
 
 关闭防火墙
 
-```
-`systemctl stop firewalld.service`
+```bash
+systemctl stop firewalld.service
 ```
 
 查看运行状态
 
-```
-`firewall-cmd --state ``//running 表示运行`
+```bash
+firewall-cmd --state #running 表示运行
 ```
 
 * **删不掉.swp文件解决方法：结束vim.exe这个进程**
