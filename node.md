@@ -1,13 +1,33 @@
 [TOC]
 
-# nodejs
+## 学习重点
+
+- 数据设计（字段命名，定义等等），
+- 数据库设计（Mongo为主，MySQL也行）
+- 数据库操作，读数据，存数据，高级点的query，像个办法把问题搞复杂点，用复杂点的数据结构
+- 用户注册，登录，忘记密码，资料CRUD（增删改查），权限控制，session，cookie，加密这些基本功
+- 非用户信息（如产品）的CRUD
+- 安全机制，XSS防护等，你也可以做更多
+- 文件上传下载，文件读取、保存等操作
+- 图片操作，比如缩放
+- 分页
+- 发邮件
+- 数据校验，错误处理
+- 路由管理，重定向
+- Middleware模式 
+- MVC，模版，模版嵌套 （用它但不要太纠结html，css，实现功能为目标）
+- 自动部署，找台真的Linux服务器来练 Vultr，DigitalOcean 
+-  用benchmark工具，如apache ab轰炸你的服务器，你就知道现实后台会面临的问题
+- unit tests
+
+## nodejs
 
 ```bash
 npm install -g cnpm --registry=https://registry.npm.taobao.org
 npm install --production   // 正式环境不下载devDependencies文件
 ```
 
-## 常用方法
+### 常用方法
 
 #### 获取默认编码为gbk的txt内容
 

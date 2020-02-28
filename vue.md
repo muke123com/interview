@@ -58,6 +58,33 @@
 
 + 锚点跳转 `this.$el.querySelector(selector).scrollIntoView();`   
 
++ build后找不到静态文件   config/index.js目录下`assetsPublicPath`改为`./`
+
++ directives  自定义指令
+
+  ```js
+  
+  // 注册一个全局自定义指令 `v-focus`
+  Vue.directive('focus', {
+    // 当被绑定的元素插入到 DOM 中时……
+    inserted: function (el) {
+      // 聚焦元素
+      el.focus()
+    }
+  })
+  
+  // 如果想注册局部指令，组件中也接受一个 directives 的选项：
+  directives: {
+    focus: {
+      // 指令的定义
+      inserted: function (el) {
+        el.focus()
+      }
+    }
+  }
+  ```
+
+
 
 #### 生命周期
 - Vue.use 使用vue插件
