@@ -2,7 +2,12 @@
 
 [TOC]
 
+#### 网站
+
+[vue-cli](https://cli.vuejs.org/zh/guide/creating-a-project.html#%E4%BD%BF%E7%94%A8%E5%9B%BE%E5%BD%A2%E5%8C%96%E7%95%8C%E9%9D%A2)
+
 #### 技术
+
 - vue-router：为单页面应用提供的路由系统，使用了 Lazy Loading Routes 技术来实现异步加载优化性能
 
 - vuex：Vue 集中状态管理，在多个组件共享某些状态时非常便捷
@@ -57,6 +62,10 @@
   ```
 
 + 锚点跳转 `this.$el.querySelector(selector).scrollIntoView();`   
+
++ 对于巨大的数组或Object，并且确信数据不会修改，可以使用`Object.freeze()`可以让性能大幅提升。
+
+  对于纯展示的大数据，都可以使用`Object.freeze`提升性能。
 
 
 #### 生命周期

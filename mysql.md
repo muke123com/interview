@@ -414,3 +414,12 @@ show global variables like 'max_allowed_packet';
 # 导入数据库时(2006, 'MySQL server has gone away')
 set global max_allowed_packet=1024*1024*16;
 ```
+
+## 例题收藏
+
+### 第二高的薪水
+
+```mysql
+select (select Salary from Employee limit 1 offset 1) SecondHighestSalary;
+```
+
