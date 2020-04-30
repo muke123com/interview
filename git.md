@@ -2,7 +2,7 @@
 
 ### git笔记
 
-git show --name-only` 只显示文件名
+`git show --name-only` 只显示文件名
 
 `git diff commit1 commit2 --stat `查看两个commit文件差异
 
@@ -12,9 +12,14 @@ git show --name-only` 只显示文件名
 npm install -g cnpm --registry=https://registry.npm.taobao.org
 ```
 
+#### 保存账号密码
+
 ```bash
 git config --global user.name "mukeke"
 git config --global user.email mukeke@quandashi.com
+
+# 方法2
+git config --global credential.helper store #再输入一次就保存了
 ```
 
 * 在错误的分支修改代码
@@ -79,7 +84,7 @@ git rebase
 
 
 
-### [搭建git服务器](https://www.jianshu.com/p/ade38a53b1ac)
+#### [搭建git服务器](https://www.jianshu.com/p/ade38a53b1ac)
 
 gitlab
 

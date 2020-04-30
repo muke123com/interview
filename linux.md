@@ -11,6 +11,17 @@
 
 
 
+## shell
+
+**1.每个命令之间用`;`****隔开**
+说明：各命令的执行给果，不会影响其它命令的执行。换句话说，各个命令都会执行，但不保证每个命令都执行成功。
+
+**2.每个命令之间用`&&`隔开**
+说明：若前面的命令执行成功，才会去执行后面的命令。这样可以保证所有的命令执行完毕后，执行过程都是成功的。
+
+**3.每个命令之间用`||`隔开**
+说明：||是或的意思，只有前面的命令执行失败后才去执行下一条命令，直到执行成功一条命令为止。
+
 ## Linux
 
 ```bash
@@ -150,7 +161,51 @@ gpasswd -d user group
 
 ```
 
+#### CentOS 7防火墙
 
+在CentOS 7或RHEL 7或Fedora中防火墙由firewalld来管理
+
+添加
+
+```bash
+firewall-cmd --zone=public --add-port=80/tcp --permanent （--permanent永久生效，没有此参数重启后失效）` `firewall-cmd  --zone=public --add-port=1000-2000/tcp --permanent
+```
+
+重新载入
+
+```bash
+firewall-cmd --reload
+```
+
+查看
+
+```bash
+firewall-cmd --zone=public --query-port=80/tcp
+```
+
+删除
+
+```bash
+firewall-cmd --zone=public --remove-port=80/tcp --permanent
+```
+
+开启防火墙
+
+```bash
+systemctl start firewalld.service
+```
+
+关闭防火墙
+
+```bash
+systemctl stop firewalld.service
+```
+
+查看运行状态
+
+```bash
+firewall-cmd --state #running 表示运行
+```
 
 * **删不掉.swp文件解决方法：结束vim.exe这个进程**
 * 修改网卡不起作用  onboot=no  改成yes
