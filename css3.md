@@ -77,3 +77,43 @@ div~p {
 }
 ```
 
+```css
+/*滑动条*/
+.scroll{
+    -moz-appearance: none !important;
+    scrollbar-color: transparent;
+    scrollbar-width: thin;
+}
+.scroll::-webkit-scrollbar {
+    width: 6px;
+}
+
+.scroll::-webkit-scrollbar-button {
+    /* 2 */
+    height: 0px;
+}
+
+.scroll::-webkit-scrollbar-track {
+    /* 3 */
+    background-color: #efefef;
+}
+
+.scroll::-webkit-scrollbar-track-piece {
+    /* 4 */
+}
+
+.scroll::-webkit-scrollbar-thumb {
+    /* 5 */
+    background-color: #ff7200;
+    border-radius: 5px;
+}
+
+.scroll::-webkit-scrollbar-corner {
+    /* 6 */
+}
+
+.scroll::-webkit-resizer{
+    /* 7 */
+
+}
+```
