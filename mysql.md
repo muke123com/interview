@@ -1,5 +1,34 @@
 [TOC]
 
+## 数据库安装
+
+```bash
+yum install mariadb-server
+systemctl start mariadb  # 开启服务
+systemctl enable mariadb  # 设置为开机自启动服务
+mysql_secure_installation
+
+Enter current password for root (enter for none):  # 输入数据库超级管理员root的密码(注意不是系统root的密码)，第一次进入还没有设置密码则直接回车
+
+Set root password? [Y/n]  # 设置密码，y
+
+New password:  # 新密码
+Re-enter new password:  # 再次输入密码
+
+Remove anonymous users? [Y/n]  # 移除匿名用户， y
+
+Disallow root login remotely? [Y/n]  # 拒绝root远程登录，n，不管y/n，都会拒绝root远程登录
+
+Remove test database and access to it? [Y/n]  # 删除test数据库，y：删除。n：不删除，数据库中会有一个test数据库，一般不需要
+
+Reload privilege tables now? [Y/n]  # 重新加载权限表，y。
+
+mysql -u root -p
+
+```
+
+
+
 ## 数据库优化
 
 **技巧1  比较运算符能用 “=”就不用“<>”**
